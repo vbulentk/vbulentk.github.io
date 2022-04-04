@@ -1,91 +1,145 @@
-<!DOCTYPE html>
-<html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Hava Durumu</title>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <div class="row offset-sm-1">
-        <!-- Header part -->
-        <section class="header col-md-4 col-sm-10">
-          <h1>Hava Durumu</h1>
-          <h4>Weather Forecast</h4>
-          <br />
-          <br />
-          <p>
-            Bülent KARATAŞ
-            <br />
-          </p>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(0deg, #e2c05b 50%, #f5e76c 50%);
+  margin: 0;
+  min-height: 100vh;
+}
 
-          <div class="sosyal">
-            <a href="https://github.com/vbulentk" target="_blank">
-              <i class="fab fa-github fa-2x"></i>
-            </a>
-          </div>
-          <div class="sosyal">
-            <a href="" target="_blank">
-              <i class="fab fa-facebook fa-2x"></i>
-            </a>
-          </div>
-          <div class="sosyal">
-            <a href="" target="_blank">
-              <i class="fab fa-twitter fa-2x"></i>
-            </a>
-          </div>
+/* --------------------background */
+.container-fluid {
+  margin: 0%;
+  /* background-color: #2d3857;
+  background-image: url(./hava-img/bg1.webp);
+  background-size: cover; */
+  /* margin-bottom: 0px; */
+  /* height: auto; */
+  /* max-height:200vh; */
+}
 
-          <br />
-        </section>
+.row {
+  padding-top: 3.5rem;
+  padding-bottom: 5rem;
+}
+/* -----------------------------header */
+.header {
+  /* background-size: cover; */
+  /* background-position: relative; */
+  background: linear-gradient(120deg, #c9a538 40%, #f5e76c 70%);
+  color: rgb(12, 11, 6);
+  text-align: center;
+  padding: 5rem;
+}
 
-        <section class="main col-md-7 col-sm-10">
-          <!-- input section -->
-          <section class="inputs">
-            <input
-              type="text"
-              placeholder="Şehir Adı {City name}"
-              id="cityinput"
-            />
+.header h1,
+h2 {
+  font-weight: 500;
+  font-size: 34px;
+  /* float: left; */
+  color: #ffffff;
+}
+.header p {
+  margin-top: 1;
+  font-weight: 600;
+  font-size: 1.5 rem;
+  color: #070707;
+}
 
-            <!-- <button id="add"></button> -->
-          </section>
-          <!-- <h2 id="msgClass">HATA</h2> -->
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+  color: #6b437e;
+}
 
-          <!-- Display section -->
-          <section class="display">
-            <div class="wrapper">
-              <table>
-                <tr>
-                  <th><h2 id="cityname"></h2></th>
-                  <th><small id="country"></small></th>
-                  <th>
-                    <h2 id="cityoutput"></h2>
-                  </th>
-                </tr>
-                <tr>
-                  <td colspan="3"><p id="clouds"></p></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td colspan="3"><p id="wind"></p></td>
-                </tr>
-              </table>
-            </div>
-          </section>
-        </section>
-      </div>
-    </div>
+a:hover {
+  text-decoration: none;
+  color: #720606;
+}
 
-    <script src="./app.js"></script>
-  </body>
-</html>
+.main {
+  /* background-image: linear-gradient(#424242, #757575); */
+  background-color: #17304d;
+}
+
+/* --------------------------------input section */
+.inputs {
+  padding: 3rem 0 3rem 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.inputs input[type="text"] {
+  height: 3.5rem;
+  width: 30rem;
+  background: #212121;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: none;
+  background-color: transparent;
+  border-bottom: solid 1px #16a864;
+  color: #b1e2cb;
+  border-radius: 2px;
+  margin-right: 4px;
+}
+.inputs input[type="submit"] {
+  height: 3.5rem;
+  width: 6.5rem;
+  background: #b1e2cb;
+  font-weight: bold;
+  color: ghostwhite;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 2px;
+}
+
+/* -------------------------------display */
+.display {
+  text-align: center;
+  color: #71cfa3;
+}
+.wrapper {
+  margin: 0 9rem;
+  width: 50%;
+  background-color: #17304d;
+  height: 30vh;
+  margin: 50px auto;
+  border-radius: 2px;
+}
+
+.wrapper h2 {
+  padding: 5px 0;
+  /* text-align: center; */
+}
+.wrapper p {
+  /* text-align: center; */
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.sosyal {
+  /* text-align: center; */
+  display: inline-flex;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 100px;
+}
+
+table,
+td {
+  /* border: 1px solid rgb(131, 240, 109); */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  height: 90px;
+}
+
