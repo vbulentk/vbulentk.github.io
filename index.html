@@ -1,12 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript </title>
-</head>
-<body>
-    <h3>VBULENTK</h3>
-</body>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Hava Durumu</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row offset-sm-1">
+        <!-- Header part -->
+        <section class="header col-md-4 col-sm-10">
+          <h1>Hava Durumu</h1>
+          <h4>Weather Forecast</h4>
+          <br />
+          <br />
+          <p>
+            Bülent KARATAŞ
+            <br />
+          </p>
+
+          <div class="sosyal">
+            <a href="https://github.com/vbulentk" target="_blank">
+              <i class="fab fa-github fa-2x"></i>
+            </a>
+          </div>
+          <div class="sosyal">
+            <a href="" target="_blank">
+              <i class="fab fa-facebook fa-2x"></i>
+            </a>
+          </div>
+          <div class="sosyal">
+            <a href="" target="_blank">
+              <i class="fab fa-twitter fa-2x"></i>
+            </a>
+          </div>
+
+          <br />
+        </section>
+
+        <section class="main col-md-7 col-sm-10">
+          <!-- input section -->
+          <section class="inputs">
+            <input
+              type="text"
+              placeholder="Şehir Adı {City name}"
+              id="cityinput"
+            />
+
+            <!-- <button id="add"></button> -->
+          </section>
+          <!-- <h2 id="msgClass">HATA</h2> -->
+
+          <!-- Display section -->
+          <section class="display">
+            <div class="wrapper">
+              <table>
+                <tr>
+                  <th><h2 id="cityname"></h2></th>
+                  <th><small id="country"></small></th>
+                  <th>
+                    <h2 id="cityoutput"></h2>
+                  </th>
+                </tr>
+                <tr>
+                  <td colspan="3"><p id="clouds"></p></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="3"><p id="wind"></p></td>
+                </tr>
+              </table>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
 </html>
