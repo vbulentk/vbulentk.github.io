@@ -29,7 +29,7 @@ function cityAdd() {
 }
 
 function weatherBalloon(cityID) {
-  var key = "2cccff501140131a9824bbe34b84d4e5";
+  var key = "xxxxxxxxxxxxxxxxxxxxxxxxxxx";
   //   var cityID = "izmir";
 
   fetch(
