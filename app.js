@@ -1,71 +1,88 @@
-const inputGet = document.querySelector("#cityinput");
-const cityName = document.querySelector("#cityname");
-const cityGet = document.querySelector("#cityoutput");
-const description = document.querySelector("#description");
-const country = document.querySelector("#country");
+const kelime = document.querySelector("#kelime");
+const kelimeYaz = document.querySelector("#kelimeYaz");
+const kelimeOku = document.querySelector("#kelimeOku");
 
-const temp = document.querySelector("#temp");
-const bulut = document.querySelector("#clouds");
-const ruzgar = document.querySelector("#wind");
-const msgClass = document.querySelector("#msgClass");
-
-inputGet.addEventListener("keyup", (e) => {
+kelime.addEventListener("keyup", (e) => {
   if (e.which === 13) {
-    cityAdd();
+    kelimeAdd();
   }
 });
 
-function cityAdd() {
-  if (inputGet.value === "") {
-    // msg.textContent = "Please search for a valid city 😩";
+function kelimeAdd() {
+  if (kelime.value === "") {
     myalert();
   } else {
-    let cityID = inputGet.value;
-    cityName.innerHTML = cityID.toUpperCase();
+    let kelimeAl = kelime.value;
 
-    weatherBalloon(cityID);
-    inputGet.value = "";
+    sozlukTdk(kelime);
+    kelimeYaz.innerHTML = kelimeAl;
+    kelime.value = "";
   }
 }
 
-function weatherBalloon(cityID) {
-  var key = "xxxxxxxxxxxxxxxxxxxxxxxxxxx";
-  //   var cityID = "izmir";
-
-  fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-      cityID +
-      "&units=imperial&APPID=" +
-      key +
-      "&lang=tr"
-  )
+function sozlukTdk(kelime) {
+  console.log("https://sozluk.gov.tr/gts?ara=" + kelime.value);
+  fetch("https://sozluk.gov.tr/gts?ara=" + kelime.value)
     .then(function (resp) {
       return resp.json();
-    }) // Convert data to json
+    })
     .then(function (data) {
-      console.log(data);
-      var celcius = Math.round((parseFloat(data.main.temp) - 32) * 0.55);
-      console.log(celcius);
-      cityGet.innerHTML = celcius + `<small>&#160;°C</small>`;
-      country.innerHTML = data.sys.country;
-      // description.innerHTML = data.weather[0].icon;
-      ruzgar.innerHTML =
-        `<small>Rüzgar: </small>` +
-        data.wind.speed +
-        `<small>&#160;km/s</small>`;
-
-      bulut.innerHTML = `<small>Hava: </small>` + data.weather[0].description;
+      kelimeOku.innerHTML = data[0].anlamlarListe[0].anlam;
+      kelimeOku.innerHTML = `
+                <p class="word-example">
+                   ${data[0].anlamlarListe[0].anlam}
+                </p>`;
     })
     .catch(function () {
-      //   msg.textContent = "Please search for a valid city 😩";
+      kelimeOku.innerHTML = `<h3 class="error">Kelime Bulunamadı.</h3>`;
     });
 }
-
-
 function myalert() {
-  alert("This is the Alert Message!");
-  cityGet.innerHTML = "";
-  ruzgar.innerHTML = "";
-  bulut.innerHTML = "";
-  cityName.innerHTML = "";
+  kelimeOku.innerHTML = "";
+  kelimeYaz.innerHTML = "";
+  kelimeOku.innerHTML = `<h3 class="error">Lütfen bir kelime Girin</h3>`;
+}
+const kelime = document.querySelector("#kelime");
+const kelimeYaz = document.querySelector("#kelimeYaz");
+const kelimeOku = document.querySelector("#kelimeOku");
+
+kelime.addEventListener("keyup", (e) => {
+  if (e.which === 13) {
+    kelimeAdd();
+  }
+});
+
+function kelimeAdd() {
+  if (kelime.value === "") {
+    myalert();
+  } else {
+    let kelimeAl = kelime.value;
+
+    sozlukTdk(kelime);
+    kelimeYaz.innerHTML = kelimeAl;
+    kelime.value = "";
+  }
+}
+
+function sozlukTdk(kelime) {
+  console.log("https://sozluk.gov.tr/gts?ara=" + kelime.value);
+  fetch("https://sozluk.gov.tr/gts?ara=" + kelime.value)
+    .then(function (resp) {
+      return resp.json();
+    })
+    .then(function (data) {
+      kelimeOku.innerHTML = data[0].anlamlarListe[0].anlam;
+      kelimeOku.innerHTML = `
+                <p class="word-example">
+                   ${data[0].anlamlarListe[0].anlam}
+                </p>`;
+    })
+    .catch(function () {
+      kelimeOku.innerHTML = `<h3 class="error">Kelime Bulunamadı.</h3>`;
+    });
+}
+function myalert() {
+  kelimeOku.innerHTML = "";
+  kelimeYaz.innerHTML = "";
+  kelimeOku.innerHTML = `<h3 class="error">Lütfen bir kelime Girin</h3>`;
 }
